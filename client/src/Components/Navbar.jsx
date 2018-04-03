@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container } from '../theme/container';
 
@@ -18,6 +17,10 @@ const Logo = styled.div`
 	font-size: 1.5rem;
 	font-weight: bold;
 	text-transform: uppercase;
+`;
+
+const Flex = styled.div`
+	display: flex;
 `;
 
 const StyledLink = styled.div`
@@ -39,10 +42,10 @@ export class Navbar extends React.Component {
 				<Container>
 					<Row>
 						<Logo onClick={this.redirect('/')}>Ski Hotel</Logo>
-						<div>
+						<Flex>
 							<StyledLink onClick={this.redirect('/register')}>Register</StyledLink>
 							<StyledLink onClick={this.redirect('/login')}>Log in</StyledLink>
-						</div>
+						</Flex>
 					</Row>
 				</Container>
 			</NavWrapper>

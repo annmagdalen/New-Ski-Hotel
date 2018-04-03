@@ -20,7 +20,7 @@ const FirstRow = styled.div`
 	// hack to place middle link exactly above copyright line
 	margin-right: 0.875rem;
 
-	> a {
+	> div {
 		color: white;
 		font-size: 1.125rem;
 		margin: 0 1.5rem;

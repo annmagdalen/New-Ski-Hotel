@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
@@ -12,6 +12,21 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { Container, theme } from '../theme';
 import { Navbar, Footer } from '../Components';
+
+const Body = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	> nav, footer {
+		flex-shrink: 1;
+	}
+
+	> div {
+		flex: auto;
+	}
+
+`;
 
 class App extends React.Component {
 	constructor(props) {
@@ -28,7 +43,7 @@ class App extends React.Component {
 		const { alert } = this.props;
 		return (
 			<ThemeProvider theme={theme}>
-				<div>
+				<Body>
 					<Navbar />
 					<Container>
 						{alert.message &&
@@ -43,7 +58,7 @@ class App extends React.Component {
 						</Router>
 					</Container>
 					<Footer />
-				</div>
+				</Body>
 			</ThemeProvider>
 		);
 	}
