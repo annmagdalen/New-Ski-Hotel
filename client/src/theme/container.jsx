@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components';
 import { media } from './media';
 
 const sizes = {
-  xl: 1140,
-  lg: 960,
-  md: 720,
-  sm: 540
+	xl: 1140,
+	lg: 960,
+	md: 720,
+	sm: 540,
 };
 
 export const Container = styled.div`
@@ -17,4 +17,4 @@ export const Container = styled.div`
   ${media.md(css`width: ${sizes.md}px;`)}
   ${media.lg(css`width: ${sizes.lg}px;`)}
   ${media.xl(css`width: ${sizes.xl}px;`)}
-`
+`;

@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["es2015", { "modules": false }],
+    "stage-3",
+    "react",
+    "flow"
+  ],
+  /* "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  } */
+}

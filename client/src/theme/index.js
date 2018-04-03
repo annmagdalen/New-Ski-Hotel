@@ -4,5 +4,5 @@ export * from './global';
 export * from './media';
 
 export const theme = {
-    ...colors
+	...colors,
 };
