@@ -3,7 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { userActions } from '../_actions';
-import { Form, Title, Label, Input, Button, LoadingImage } from '../theme';
+import {
+	Form,
+	Title,
+	Label,
+	Input,
+	Button,
+	LoadingImage,
+	Error,
+} from '../theme';
 
 const Link = styled.a`
 	color: ${({ theme }) => theme.button};
@@ -57,10 +65,10 @@ class Login extends React.Component {
 					<Title>Login</Title>
 					<Label htmlFor="username">Username</Label>
 					<Input type="text" name="username" value={username} onChange={this.handleChange} />
-					{submitted && !username && <div>Username is required</div>}
+					{submitted && !username && <Error>Username is required</Error>}
 					<Label htmlFor="password">Password</Label>
 					<Input type="password" name="password" value={password} onChange={this.handleChange} />
-					{submitted && !password && <div>Password is required</div>}
+					{submitted && !password && <Error>Password is required</Error>}
 					<Button>Login</Button>
 					<p>If you are not registered yet, register <Link href="/register">here</Link>.</p>
 					{loggingIn && <LoadingImage />}

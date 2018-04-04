@@ -11,20 +11,19 @@ export const Form = styled.form`
 export const Title = styled.h1`
 	font-size: 1.5rem;
 	font-weight: bold;
-	margin-bottom: 1.5rem;
+	margin-bottom: 0.5rem;
 `;
 
 export const Label = styled.label`
   font-size: 1rem;
   font-weight: normal;
-	margin-bottom: 0.5rem;
+	margin: 1rem 0 0.5rem 0;
 `;
 
 export const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 5px;
   padding: 0.625rem 0.5rem;
-  margin-bottom: 1rem;
 
   &:focus {
     border-width: 1px;
@@ -39,11 +38,16 @@ export const Button = styled.button`
   border-radius: 5px;
   color: ${props => (props.ghost ? `${theme.button}` : 'white')};
   font-size: 1rem;
-	margin: 0.25rem 0 2rem 0;
+	margin: 1.25rem 0 2rem 0;
   padding: 0.5rem 1rem;
   width: max-content;
 
 	&:focus {
 		outline: none;
 	}
+`;
+
+export const Error = styled.div`
+	color: ${({ theme }) => theme.primary};
+	font-size: 0.875rem;
 `;
