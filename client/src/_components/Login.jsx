@@ -3,14 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { userActions } from '../_actions';
-import {
-	Form,
-	Title,
-	Label,
-	Input,
-	Button,
-	LoadingImage,
-} from '../theme';
+import { Form, Title, Label, Input, Button, LoadingImage } from '../theme';
 
 const Link = styled.a`
 	color: ${({ theme }) => theme.button};
@@ -21,7 +14,7 @@ const Link = styled.a`
 	}
 `;
 
-class LoginPage extends React.Component {
+class Login extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -57,6 +50,7 @@ class LoginPage extends React.Component {
 	render() {
 		const { loggingIn } = this.props;
 		const { username, password, submitted } = this.state;
+
 		return (
 			<div>
 				<Form name="form" onSubmit={this.handleSubmit}>
@@ -76,7 +70,7 @@ class LoginPage extends React.Component {
 	}
 }
 
-LoginPage.propTypes = {
+Login.propTypes = {
 	dispatch: PropTypes.func,
 	loggingIn: PropTypes.bool,
 };
@@ -88,5 +82,5 @@ function mapStateToProps(state) {
 	};
 }
 
-const connectedLoginPage = connect(mapStateToProps)(LoginPage);
-export { connectedLoginPage as LoginPage };
+const connectedLoginPage = connect(mapStateToProps)(Login);
+export { connectedLoginPage as Login };

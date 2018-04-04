@@ -1,7 +1,7 @@
+import { createBrowserHistory } from 'history';
 import { userConstants } from '../_constants';
 import { userService } from '../_services';
 import { alertActions } from './';
-import { history } from '../_helpers';
 
 export const userActions = {
 	login,
@@ -19,7 +19,7 @@ function login(username, password) {
 			.then(
 				user => {
 					dispatch(success(user));
-					history.push('/');
+					createBrowserHistory().push('/');
 				},
 				error => {
 					dispatch(failure(error));
@@ -46,7 +46,7 @@ function register(user) {
 			.then(
 				() => {
 					dispatch(success());
-					history.push('/login');
+					createBrowserHistory().push('/login');
 					dispatch(alertActions.success('Registration successful'));
 				},
 				error => {

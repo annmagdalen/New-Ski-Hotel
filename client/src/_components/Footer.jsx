@@ -20,7 +20,7 @@ const FirstRow = styled.div`
 	// hack to place middle link exactly above copyright line
 	margin-right: 0.875rem;
 
-	> div {
+	> a {
 		color: white;
 		font-size: 1.125rem;
 		margin: 0 1.5rem;
@@ -35,9 +35,9 @@ export class Footer extends React.Component {
 		return (
 			<FooterWrapper>
 				<FirstRow>
-					<div to={'/about'}>About</div>
-					<div to={'/contact'}>Contact</div>
-					<div to={'/faq'}>Faq</div>
+					<a href={'/about'}>About</a>
+					<a href={'/contact'}>Contact</a>
+					<a href={'/faq'}>Faq</a>
 				</FirstRow>
 				<p>&copy; Ski Hotel {year}</p>
 			</FooterWrapper>

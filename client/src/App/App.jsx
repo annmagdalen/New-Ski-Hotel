@@ -3,15 +3,15 @@ import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import { createBrowserHistory } from 'history';
 
-import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 import { PrivateRoute } from '../_routes';
-import { HomePage } from '../HomePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+// import { HomePage } from '../HomePage';
+// import { LoginPage } from './LoginPage';
+// import { RegisterPage } from './RegisterPage';
 import { Container, theme } from '../theme';
-import { Navbar, Footer } from '../Components';
+import { Home, Login, Register, Navbar, Footer } from '../_components';
 
 const Body = styled.div`
 	display: flex;
@@ -25,7 +25,6 @@ const Body = styled.div`
 	> div {
 		flex: auto;
 	}
-
 `;
 
 class App extends React.Component {
@@ -33,7 +32,7 @@ class App extends React.Component {
 		super(props);
 
 		const { dispatch } = this.props;
-		history.listen(() => {
+		createBrowserHistory().listen(() => {
 			// clear alert on location change
 			dispatch(alertActions.clear());
 		});
@@ -49,11 +48,11 @@ class App extends React.Component {
 						{alert.message &&
                   <div className={`alert ${alert.type}`}>{alert.message}</div>
 						}
-						<Router history={history}>
+						<Router history={createBrowserHistory()}>
 							<div>
-								<PrivateRoute exact path="/" component={HomePage} />
-								<Route path="/login" component={LoginPage} />
-								<Route path="/register" component={RegisterPage} />
+								<PrivateRoute exact path="/" component={Home} />
+								<Route path="/login" component={Login} />
+								<Route path="/register" component={Register} />
 							</div>
 						</Router>
 					</Container>

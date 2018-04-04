@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userActions } from '../_actions';
 
-class HomePage extends React.Component {
+class Home extends React.Component {
 	componentDidMount() {
 		this.props.dispatch(userActions.getAll());
 	}
@@ -44,7 +44,7 @@ class HomePage extends React.Component {
 	}
 }
 
-HomePage.propTypes = {
+Home.propTypes = {
 	dispatch: PropTypes.func,
 	user: PropTypes.object,
 	users: PropTypes.object,
@@ -59,5 +59,4 @@ function mapStateToProps(state) {
 	};
 }
 
-const connectedHomePage = connect(mapStateToProps)(HomePage);
-export { connectedHomePage as HomePage };
+export default connect(mapStateToProps)(Home);

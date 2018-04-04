@@ -12,10 +12,11 @@ const Row = styled.div`
 	padding: 1rem 0;
 `;
 
-const Logo = styled.div`
+const Logo = styled.a`
 	color: white;
 	font-size: 1.5rem;
 	font-weight: bold;
+	line-height: 1.5;
 	text-transform: uppercase;
 `;
 
@@ -23,7 +24,7 @@ const Flex = styled.div`
 	display: flex;
 `;
 
-const StyledLink = styled.div`
+const StyledLink = styled.a`
 	color: white;
 	font-size: 1.125rem;
 	line-height: 2;
@@ -31,20 +32,15 @@ const StyledLink = styled.div`
 `;
 
 export class Navbar extends React.Component {
-	redirect(url) {
-		console.log(url);
-		// this.props.(`${url}`);
-	}
-
 	render() {
 		return (
 			<NavWrapper>
 				<Container>
 					<Row>
-						<Logo onClick={this.redirect('/')}>Ski Hotel</Logo>
+						<Logo href='/'>Logo</Logo>
 						<Flex>
-							<StyledLink onClick={this.redirect('/register')}>Register</StyledLink>
-							<StyledLink onClick={this.redirect('/login')}>Log in</StyledLink>
+							<StyledLink href='/register'>Register</StyledLink>
+							<StyledLink href='/login'>Log in</StyledLink>
 						</Flex>
 					</Row>
 				</Container>
