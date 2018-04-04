@@ -14,6 +14,6 @@ export class LoadingImage extends React.Component {
 			MLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbt
 			gENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUB
 			jCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-		)
+		);
 	}
 }
