@@ -42,4 +42,8 @@ export const Button = styled.button`
 	margin: 0.25rem 0 2rem 0;
   padding: 0.5rem 1rem;
   width: max-content;
+
+	&:focus {
+		outline: none;
+	}
 `;
