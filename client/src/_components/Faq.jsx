@@ -29,24 +29,24 @@ const Row = styled.div`
 	padding: 1.5rem 0;
 	width: 100%;
 
-	> div {
+	> p {
+		margin: 0;
 		font-weight: bold;
+	}
+
+	> div {
+		transform: ${props => (props.down ? '' : 'rotateX(180deg)')};
+		transition: transform 0.3s ease-out;
 	}
 `;
 
 const Chevron = styled.div`
 	border-style: solid;
-	border-width: 0.25em 0.25em 0 0;
-	content: '';
-	display: inline-block;
-	height: 0.45em;
-	left: 0.15em;
+	border-width: 4px 4px 0 0;
+	height: 0.5rem;
 	margin: 0 1rem;
-	position: relative;
-	top: 0;
-	transform: ${props => (props.down ? 'rotate(-45deg)' : 'rotate(135deg)')};
-	vertical-align: top;
-	width: 0.45em;
+	transform: rotate(-45deg);
+	width: 0.5rem;
 `;
 
 export class Faq extends React.Component {
@@ -73,9 +73,11 @@ export class Faq extends React.Component {
 				<h1>Faq</h1>
 				{faqs.map((faq, index) =>
 					<Article key={index}>
-						<Row onClick={() => this.toggleAnswer(index)} underline={!whichAnswerVisible[index]} >
-							<div>{faq.question}</div>
-							<Chevron down={whichAnswerVisible[index]} />
+						<Row onClick={() => this.toggleAnswer(index)} down={whichAnswerVisible[index]}>
+							<p>{faq.question}</p>
+							<div>
+								<Chevron />
+							</div>
 						</Row>
 						{whichAnswerVisible[index] && <p>{faq.answer}</p>}
 					</Article>
