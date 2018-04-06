@@ -3,9 +3,9 @@ import { Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { createBrowserHistory } from 'history';
 
 import { alertActions } from '../_actions';
+import { history } from '../_helpers';
 import { Routing } from '../_routes';
 import { Container, theme } from '../theme';
 import { Navbar, Footer } from '../_components';
@@ -24,12 +24,18 @@ const Body = styled.div`
 	}
 `;
 
+const Alert = styled.article`
+	background-color: pink;
+	margin-top: -1rem;
+	padding: 1rem;
+`;
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		const { dispatch } = this.props;
-		createBrowserHistory().listen(() => {
+		history.listen(() => {
 			// clear alert on location change
 			dispatch(alertActions.clear());
 		});
@@ -42,9 +48,9 @@ class App extends React.Component {
 			<ThemeProvider theme={theme}>
 				<Body>
 					<Navbar />
+					{alert.message && <Alert><Container>{alert.message}</Container></Alert>}
 					<Container>
-						{alert.message && <div>{alert.message}</div>}
-						<Router history={createBrowserHistory()}>
+						<Router history={history}>
 							<Routing />
 						</Router>
 					</Container>

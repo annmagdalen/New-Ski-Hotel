@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history';
+import { history } from '../_helpers';
 import { emailConstants } from '../_constants';
 import { emailService } from '../_services';
 import { alertActions } from './';
@@ -15,7 +15,7 @@ function register(mail) {
 			.then(
 				() => {
 					dispatch(success());
-					createBrowserHistory().push('/');
+					history.push('/');
 					dispatch(alertActions.success('Email successfully sent'));
 				},
 				error => {

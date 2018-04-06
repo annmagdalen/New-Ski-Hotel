@@ -61,7 +61,7 @@ class Login extends React.Component {
 
 		return (
 			<div>
-				<Form name="form" onSubmit={this.handleSubmit}>
+				<Form name="form">
 					<Title>Login</Title>
 					<Label htmlFor="username">Username</Label>
 					<Input type="text" name="username" value={username} onChange={this.handleChange} />
@@ -69,7 +69,7 @@ class Login extends React.Component {
 					<Label htmlFor="password">Password</Label>
 					<Input type="password" name="password" value={password} onChange={this.handleChange} />
 					{submitted && !password && <Error>Password is required</Error>}
-					<Button>Login</Button>
+					<Button onClick={this.handleSubmit}>Login</Button>
 					<p>If you are not registered yet, register <Link href="/register">here</Link>.</p>
 					{loggingIn && <LoadingImage />}
 				</Form>

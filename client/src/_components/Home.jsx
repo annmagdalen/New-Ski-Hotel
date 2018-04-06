@@ -13,13 +13,13 @@ class Home extends React.Component {
 	}
 
 	render() {
-		const { user, users } = this.props;
+		// const { user, users } = this.props;
 
 		return (
 			<div>
-				<h1>Hello {user.firstName}</h1>
+				{/* <h1>Hello {user.firstName}</h1> */}
 				<h3>All registered users:</h3>
-				{users.loading && <em>Loading users...</em>}
+				{/* {users.loading && <em>Loading users...</em>}
 				{users.error && <span>ERROR: {users.error}</span>}
 				{users.items &&
 					<ul>
@@ -34,7 +34,7 @@ class Home extends React.Component {
 							</li>
 						)}
 					</ul>
-				}
+				} */}
 			</div>
 		);
 	}
