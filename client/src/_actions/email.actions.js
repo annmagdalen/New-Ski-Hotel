@@ -3,7 +3,7 @@ import { emailConstants } from '../_constants';
 import { emailService } from '../_services';
 import { alertActions } from './';
 
-export const userActions = {
+export const emailActions = {
 	register,
 };
 

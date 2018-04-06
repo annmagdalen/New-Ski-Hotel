@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Container } from '../theme/container';
 
@@ -31,20 +33,38 @@ const StyledLink = styled.a`
 	margin-left: 3rem;
 `;
 
-export class Navbar extends React.Component {
+class Navbar extends React.Component {
 	render() {
+		const { loggedIn } = this.props;
+
 		return (
 			<NavWrapper>
 				<Container>
 					<Row>
 						<Logo href='/'>Logo</Logo>
-						<Flex>
-							<StyledLink href='/register'>Register</StyledLink>
-							<StyledLink href='/login'>Log in</StyledLink>
-						</Flex>
+						{loggedIn ? <StyledLink href="/login">Logout</StyledLink> :
+							<Flex>
+								<StyledLink href='/register'>Register</StyledLink>
+								<StyledLink href='/login'>Log in</StyledLink>
+							</Flex>
+						}
 					</Row>
 				</Container>
 			</NavWrapper>
 		);
 	}
 }
+
+Navbar.propTypes = {
+	loggedIn: PropTypes.bool,
+};
+
+function mapStateToProps(state) {
+	const { loggedIn } = state.authentication;
+	return {
+		loggedIn,
+	};
+}
+
+const connectedNavbarPage = connect(mapStateToProps)(Navbar);
+export { connectedNavbarPage as Navbar };
