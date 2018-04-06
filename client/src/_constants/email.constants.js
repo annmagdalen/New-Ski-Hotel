@@ -1,0 +1,5 @@
+export const emailConstants = {
+	EMAIL_REQUEST: 'EMAIL_REQUEST',
+	EMAIL_SUCCESS: 'EMAIL_SUCCESS',
+	EMAIL_FAILURE: 'EMAIL_FAILURE',
+};

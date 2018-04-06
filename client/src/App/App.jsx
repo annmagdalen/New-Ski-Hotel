@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Switch } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
@@ -45,9 +45,7 @@ class App extends React.Component {
 					<Container>
 						{alert.message && <div>{alert.message}</div>}
 						<Router history={createBrowserHistory()}>
-							<Switch>
-								<Routing />
-							</Switch>
+							<Routing />
 						</Router>
 					</Container>
 					<Footer />

@@ -1,3 +1,4 @@
+export * from './Contact';
 export * from './Faq';
 export * from './Footer';
 export * from './Home';

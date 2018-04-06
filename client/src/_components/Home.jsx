@@ -16,12 +16,12 @@ class Home extends React.Component {
 	render() {
 		const { user, users } = this.props;
 		return (
-			<div className="col-md-6 col-md-offset-3">
+			<div>
 				<h1>Hi {user.firstName}!</h1>
 				<p>You are logged in with React and ASP.NET Core 2.0!!</p>
 				<h3>All registered users:</h3>
 				{users.loading && <em>Loading users...</em>}
-				{users.error && <span className="text-danger">ERROR: {users.error}</span>}
+				{users.error && <span>ERROR: {users.error}</span>}
 				{users.items &&
 					<ul>
 						{users.items.map((user) =>
@@ -29,7 +29,7 @@ class Home extends React.Component {
 								{user.firstName + ' ' + user.lastName}
 								{
 									user.deleting ? <em> - Deleting...</em>
-										: user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
+										: user.deleteError ? <span> - ERROR: {user.deleteError}</span>
 											: <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
 								}
 							</li>
